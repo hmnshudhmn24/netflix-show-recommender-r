@@ -1,53 +1,99 @@
-# 🎥 Netflix Show Recommender
+# 🎥 Netflix Show Recommender  
 
-## 📌 Overview
-This project builds a **content-based recommendation system** for Netflix movies and TV shows.  
-It uses **cosine similarity** on genres and descriptions to recommend similar titles.
+## 📌 Overview  
 
-## 🎯 Goal
-- Recommend Netflix titles similar to a given show or movie.
-- Explore text-based recommendation using genres and descriptions.
+The **Netflix Show Recommender** is a **content-based recommendation system** built in **R**.  
+It recommends Netflix movies and TV shows that are **similar to a given title** by analyzing:  
 
-## 📂 Dataset
-- **Source:** [Netflix Shows Dataset on Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows)
-- **Columns used:**
-  - `title`
-  - `listed_in` (Genres)
-  - `description`
+- **Genres (`listed_in`)**  
+- **Description (`description`)**  
 
-## 🛠 Features
-- Cleans and preprocesses text (lowercasing, removing numbers/punctuation, etc.)
-- Combines genre and description for recommendation.
-- Creates a term-document matrix for similarity calculation.
-- Uses **cosine similarity** to find similar shows.
-- Allows flexible number of recommendations.
+The system uses **cosine similarity** on a combined text representation (genres + descriptions) to recommend the most similar titles.  
 
-## 📦 Requirements
-- **R >= 4.0**
-- Packages:
+
+
+## 🎯 Goals  
+
+- 📺 Suggest shows/movies similar to a given Netflix title.  
+- 🔍 Explore how **text-based similarity** can be used for recommendations.  
+- 🛠 Build an **explainable, lightweight recommendation system** using R.  
+
+
+
+## 📂 Dataset  
+
+- **Source:** [Netflix Shows Dataset on Kaggle](https://www.kaggle.com/datasets/shivamb/netflix-shows)  
+- **File:** `netflix_titles.csv`  
+- **Columns used:**  
+  - `title` → Movie/TV show name  
+  - `listed_in` → Genres  
+  - `description` → Short plot/summary  
+
+
+
+## 🛠 Features  
+
+- ✅ **Data cleaning**: lowercasing, removing punctuation, numbers, and stopwords.  
+- ✅ **Text preprocessing**: combining `listed_in` (genres) + `description`.  
+- ✅ **Term-document matrix** for vectorization.  
+- ✅ **Cosine similarity** to measure how close two titles are.  
+- ✅ **Customizable recommendations**: user can specify how many recommendations to fetch.  
+
+
+
+## 📦 Requirements  
+
+- **R version ≥ 4.0**  
+- Required packages:  
+
 ```r
 install.packages(c("tidyverse", "readr", "stringr", "textclean", "tm", "proxy"))
 ```
 
-## 🚀 How to Run
-1. Download the dataset `netflix_titles.csv` from Kaggle and place it in your working directory.
-2. Run the R script:
+
+
+## 🚀 How to Run  
+
+1. Download dataset from Kaggle → [Netflix Shows Dataset](https://www.kaggle.com/datasets/shivamb/netflix-shows).  
+2. Place the dataset (`netflix_titles.csv`) in your working directory.  
+3. Run the script:  
+
 ```r
 source("netflix_recommender.R")
-```
-3. Try the recommender:
+```  
+
+4. Get recommendations:  
+
 ```r
 recommend_titles("Breaking Bad", 5)
-```
+```  
 
-## 📊 Example Output
+
+
+## 📊 Example Output  
+
 ```
 📺 Recommendations for: Breaking Bad
 [1] "Narcos" "El Chapo" "Better Call Saul" "Ozark" "The Blacklist"
 ```
 
-## 📌 Skills Used
-- **Recommender Systems**
-- **Text Mining**
-- **Natural Language Processing**
-- **Cosine Similarity**
+
+
+## 📌 Skills Used  
+
+- 🎯 **Recommender Systems**  
+- 📖 **Text Mining & NLP**  
+- 📊 **Cosine Similarity**  
+- 🧹 **Data Cleaning & Preprocessing**  
+- 🛠 **R Programming**  
+
+
+
+## 🚀 Roadmap  
+
+- [ ] Add TF-IDF weighting for improved similarity.  
+- [ ] Add hybrid recommendations (text + popularity).  
+- [ ] Build a simple **Shiny app** for interactive recommendations.  
+- [ ] Deploy as an **API** for integration.  
+
+
